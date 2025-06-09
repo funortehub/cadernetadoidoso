@@ -648,9 +648,6 @@
         <!-- Tela 2: Menu Principal -->
         <div id="screen2" class="screen">
             <div class="header">
-                <button class="back-btn" onclick="showScreen('screen1')">
-                    <i class="material-icons">arrow_back</i>
-                </button>
                 <h1>Menu Principal</h1>
             </div>
             
@@ -1495,6 +1492,9 @@
                 currentUser = { id: 'demo-user', ...userData };
                 localStorage.setItem('gestanteUser', JSON.stringify(currentUser));
                 
+                // Update UI
+                updateUserDisplay();
+                
                 // Hide loading
                 loadingOverlay.style.opacity = '0';
                 setTimeout(() => {
@@ -1502,7 +1502,6 @@
                 }, 300);
                 
                 showScreen('screen2');
-                updateUserDisplay();
                 
                 // Show success message
                 alert('Cadastro realizado com sucesso!');
